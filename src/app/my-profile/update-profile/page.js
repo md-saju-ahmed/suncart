@@ -13,20 +13,15 @@ const UpdateProfilePage = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
 
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
+  const [name, setName] = useState(() => user?.name || "");
+  const [image, setImage] = useState(() => user?.image || "");
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
 
     try {
-      await authClient.updateUser({
-        name: name || user?.name,
-        image: image || user?.image,
-      });
-
+      await authClient.updateUser({ name, image });
       await authClient.getSession();
-
       toast.success("Profile updated successfully!");
     } catch (error) {
       toast.error("Failed to update profile");
@@ -58,7 +53,6 @@ const UpdateProfilePage = () => {
                 Update your profile information and avatar.
               </p>
             </div>
-
             <Link
               href="/my-profile"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 transition hover:bg-neutral-100 animate__animated animate__zoomIn"
@@ -83,7 +77,6 @@ const UpdateProfilePage = () => {
             onSubmit={handleUpdateProfile}
             className="mt-10 space-y-5 animate__animated animate__fadeInUp"
           >
-
             {/* Name */}
             <div>
               <label className="mb-2 block text-sm font-medium text-neutral-700">
@@ -92,7 +85,7 @@ const UpdateProfilePage = () => {
               <input
                 type="text"
                 placeholder="Enter your full name"
-                value={name || user?.name || ""}
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="input input-bordered h-11 w-full rounded-2xl border-neutral-200 bg-white focus:outline-none"
               />
@@ -106,7 +99,7 @@ const UpdateProfilePage = () => {
               <input
                 type="text"
                 placeholder="Paste your image URL"
-                value={image || user?.image || ""}
+                value={image}
                 onChange={(e) => setImage(e.target.value)}
                 className="input input-bordered h-11 w-full rounded-2xl border-neutral-200 bg-white focus:outline-none"
               />
