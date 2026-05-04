@@ -32,7 +32,7 @@ The main goal of **SunCart** is to build a real-world eCommerce experience focus
 ## 🚀 Live URL
 
 ```text
-https://your-live-site-url.com
+https://suncart-nextjs.vercel.app/
 ```
 
 ---
