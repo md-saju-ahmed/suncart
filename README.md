@@ -1,60 +1,126 @@
-# SunCart – Summer Essentials Store
+# ☀️ SunCart
 
-## 📌 Project Overview
+A modern eCommerce application for discovering and purchasing summer essentials, including sunglasses, fashion items, skincare products, beach accessories, and more.
 
-**SunCart** is a modern eCommerce web application where users can explore and purchase seasonal essentials such as sunglasses, summer outfits, skincare products, beach accessories, and more.
+**Built with Next.js, MongoDB, Better Auth, Tailwind CSS, and DaisyUI.**
 
-The platform allows users to browse products, view detailed product information, and place orders securely after authentication.
-
----
-
-## 📁 Project Purpose
-
-The main goal of **SunCart** is to build a real-world eCommerce experience focusing on:
-
-* Clean UI/UX design
-* Authentication-based shopping flow
-* Scalable Next.js architecture
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit-4ade80?style=for-the-badge)](https://suncart-nextjs.vercel.app/)
+ 
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-6366f1?style=for-the-badge)](https://mdsajuahmed.com)
+ 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge\&logo=linkedin)](https://linkedin.com/in/mdsajuahmed)
 
 ---
 
-## ✨ Key Features
+## 🔗 Demo
 
-* Browse a wide range of summer essential products
-* View detailed product pages after authentication
-* User authentication
-* User profile management
-* Fully responsive design
-* Clean and modern UI
+🌐 **Live Site:** https://suncart-nextjs.vercel.app
 
 ---
 
-## 🚀 Live URL
+## 📸 Screenshot
 
-```text
-https://suncart-nextjs.vercel.app/
-```
+[![SunCart Screenshot](./screenshots/home.png)](https://suncart-nextjs.vercel.app/)
 
 ---
 
-## ⚙️ Setup Instructions
+## ✨ Features
 
-```bash
-git clone https://github.com/md-saju-ahmed/suncart-nextjs.git
-cd suncart
-npm install
-npm run dev
-```
+|     | Feature                          | Description                                                                    |
+| --- | -------------------------------- | ------------------------------------------------------------------------------ |
+| 🛍️ | Product Catalog                  | Browse and discover summer essentials across multiple categories               |
+| 🔍  | Product Details                  | View detailed product information including pricing, descriptions, and images  |
+| 🔐  | Authentication System            | Create accounts, sign in securely, and access protected content                |
+| 👤  | User Dashboard                   | Manage profile information and account settings                                |
+| ❤️  | Personalized Shopping Experience | Access user-specific functionality after authentication                        |
+| 🚫  | Protected Routes                 | Restrict access to private pages and product details for unauthenticated users |
+
 
 ---
 
-## 🧰 Tech Stack
+## 🛠️ Technologies Used
+
+### Frontend
 
 * Next.js (App Router)
 * React.js
 * Tailwind CSS
-* DaisyUi
+* DaisyUI
+
+### Backend & Database
+
 * MongoDB
-* BetterAuth
+
+### Authentication
+
+* Better Auth
+
+### Deployment
+
+* Vercel
 
 ---
+
+## 🎯 Project Highlights
+
+- Built a full-stack eCommerce application using Next.js App Router
+- Implemented secure authentication and session management with Better Auth
+- Integrated MongoDB for persistent data storage
+- Developed protected routes and authenticated user flows
+- Leveraged server-side rendering and modern Next.js features
+- Structured the application using scalable component-based architecture
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Node.js
+* npm
+
+### Installation
+
+```bash
+git clone https://github.com/md-saju-ahmed/suncart-nextjs.git
+
+cd suncart-nextjs
+
+npm install
+```
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+### Production Build
+
+```bash
+npm run build
+```
+
+### Start Production Server
+
+```bash
+npm start
+```
+
+---
+
+## 🎯 Purpose
+
+SunCart was created to simulate a real-world eCommerce workflow, focusing on authentication-based shopping experiences, scalable application architecture, and modern web development practices using Next.js.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
