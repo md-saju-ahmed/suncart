@@ -82,9 +82,9 @@ A modern eCommerce application for discovering and purchasing summer essentials,
 ### Installation
 
 ```bash
-git clone https://github.com/md-saju-ahmed/suncart-nextjs.git
+git clone https://github.com/md-saju-ahmed/suncart.git
 
-cd suncart-nextjs
+cd suncart
 
 npm install
 ```
