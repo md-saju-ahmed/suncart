@@ -1,17 +1,20 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 import { FaStar } from "react-icons/fa";
-import { HiArrowUpRight } from "react-icons/hi2";
+import { ArrowUpRight, Heart, ShoppingCart } from "lucide-react";
 
 const ProductCard = ({ product }) => {
-  const displayImage =
-    product.image && product.image.trim() !== ""
-      ? product.image
-      : "/images/placeholder.png";
+  const { addToCart, toggleWishlist, isInWishlist, isInCart } = useCart();
+
+  const displayImage = product.image && product.image.trim() !== "" ? product.image : "/images/placeholder.png";
+  const wishlisted = isInWishlist(product.id);
+  const inCart = isInCart(product.id);
 
   return (
     <div className="group relative bg-white border border-slate-100 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/40 hover:border-slate-200 hover:-translate-y-1 animate__animated animate__fadeInUp">
-      
+
       {/* Image */}
       <div className="relative aspect-4/3 overflow-hidden bg-slate-50">
         <Image
@@ -27,6 +30,18 @@ const ProductCard = ({ product }) => {
           <FaStar className="text-yellow-500" />
           {product.rating}
         </div>
+
+        {/* Wishlist Button */}
+        <button
+          onClick={() => toggleWishlist(product)}
+          className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm border ${wishlisted
+            ? "bg-rose-500 border-rose-500 text-white scale-110"
+            : "bg-white/80 backdrop-blur-md border-white/50 text-slate-500 hover:bg-rose-50 hover:text-rose-500"
+            }`}
+          aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
+        >
+          <Heart className={`text-sm ${wishlisted ? "fill-white" : ""}`} />
+        </button>
       </div>
 
       {/* Content */}
@@ -44,17 +59,32 @@ const ProductCard = ({ product }) => {
           {product.name}
         </h3>
 
-        <p className="text-xs leading-relaxed text-slate-500 line-clamp-2 mb-6 font-light">
+        <p className="text-xs leading-relaxed text-slate-500 line-clamp-2 mb-4 font-light">
           {product.description}
         </p>
 
-        <Link
-          href={`/products/${product.id}`}
-          className="w-full inline-flex items-center justify-center gap-2 bg-slate-900 text-white py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-black active:scale-[0.98] hover:shadow-lg"
-        >
-          View Details
-          <HiArrowUpRight className="text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-        </Link>
+        <div className="flex gap-2">
+          {/* Add to Cart */}
+          <button
+            onClick={() => addToCart(product)}
+            className={`flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all duration-300 active:scale-[0.98] ${inCart
+              ? "bg-green-600 text-white hover:bg-green-700"
+              : "bg-slate-900 text-white hover:bg-black hover:shadow-lg"
+              }`}
+          >
+            <ShoppingCart className="text-base" />
+            {inCart ? "In Cart" : "Add to Cart"}
+          </button>
+
+          {/* View Details */}
+          <Link
+            href={`/products/${product.id}`}
+            className="flex items-center justify-center w-11 h-11 border border-slate-200 rounded-xl text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all duration-200"
+            aria-label="View details"
+          >
+            <ArrowUpRight className="text-base" />
+          </Link>
+        </div>
       </div>
     </div>
   );
